@@ -1,60 +1,216 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Photography — Anaïs Pantzer</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;600&display=swap">
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Photography — Anaïs Pantzer</title>
+<meta name="theme-color" content="#0b0910">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@1&display=swap">
+<script>document.documentElement.classList.add('js')</script>
 <style>
-:root{--bg:#ebebeb;--surface:#fff;--text:#1d1b22;--muted:#5d5866;--lav:#a59dad;--accent:#5b4b8a;--line:#d6d2dc}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#15131a;--surface:#1f1c27;--text:#ece9f1;--muted:#aaa4b6;--lav:#7c7488;--accent:#b9a9e6;--line:#34303f;color-scheme:dark}}
-:root[data-theme="dark"]{--bg:#15131a;--surface:#1f1c27;--text:#ece9f1;--muted:#aaa4b6;--lav:#7c7488;--accent:#b9a9e6;--line:#34303f;color-scheme:dark}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:400 16px/1.6 Inter,system-ui,sans-serif}
-header{background:var(--surface);border-bottom:1px solid var(--line)}
-nav{max-width:1100px;margin:auto;display:flex;justify-content:space-between;align-items:center;padding:12px 20px;font-size:14px}
-nav a,nav button{color:var(--muted);text-decoration:none;background:none;border:0;font:inherit;cursor:pointer}nav a:hover,nav button:hover{color:var(--accent)}
-nav button{border:1px solid var(--line);border-radius:999px;padding:3px 12px}
-main{max-width:1100px;margin:auto;padding:48px 20px 20px}
-h1{font:400 clamp(40px,9vw,80px)/1.05 Anton,Impact,sans-serif;text-transform:uppercase;color:var(--lav);margin:0 0 6px}
-.sub{color:var(--muted);margin:0 0 22px}
-.chips{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 24px}
-.chip{border:1px solid var(--line);background:var(--surface);color:var(--text);border-radius:999px;padding:6px 16px;font:600 14px Inter,sans-serif;cursor:pointer}
-.chip.on{background:var(--accent);border-color:var(--accent);color:#fff}
-.grid{display:flex;gap:12px;align-items:flex-start}.col{flex:1;display:flex;flex-direction:column;gap:12px;min-width:0}
-.it{margin:0;border-radius:10px;overflow:hidden;background:var(--line);cursor:zoom-in;position:relative}
-.it img{display:block;width:100%;height:auto;transition:transform .3s}.it:hover img{transform:scale(1.03)}
-.credit{color:var(--muted);font-size:13px;text-align:center;padding:30px 0 40px}
-#lb{position:fixed;inset:0;background:rgba(10,8,16,.94);display:none;flex-direction:column;align-items:center;justify-content:center;z-index:50;padding:16px}
-#lb.open{display:flex}#lb img{max-width:100%;max-height:calc(100vh - 110px);object-fit:contain;border-radius:6px}
-#lb .cap{color:#eee;font-size:14px;margin-top:12px;text-align:center}#lb .cap small{display:block;color:#aaa;font-size:12px}
-#lb button{position:absolute;background:rgba(255,255,255,.12);color:#fff;border:0;width:44px;height:44px;border-radius:50%;font-size:22px;cursor:pointer}
-#lb .x{top:14px;right:14px}#lb .p{left:12px;top:50%}#lb .n{right:12px;top:50%}
-@media(max-width:600px){#lb .p,#lb .n{top:auto;bottom:14px}}
-</style></head><body>
-<header><nav><a href="./" data-en="← Back to portfolio" data-fr="← Retour au portfolio">← Back to portfolio</a><button id="lang" aria-label="Language">FR</button></nav></header>
-<main><h1 data-en="Photography" data-fr="Photographie">Photography</h1>
-<p class="sub" data-en="Concerts, travels, landscapes and a few cats." data-fr="Concerts, voyages, paysages et quelques chats.">Concerts, travels, landscapes and a few cats.</p>
-<div class="chips"><button class="chip on" data-c="all" data-en="All" data-fr="Tout">All</button><button class="chip" data-c="korea" data-en="Korea" data-fr="Corée">Korea</button><button class="chip" data-c="china" data-en="China" data-fr="Chine">China</button><button class="chip" data-c="france" data-en="France" data-fr="France">France</button><button class="chip" data-c="concerts" data-en="Concerts" data-fr="Concerts">Concerts</button><button class="chip" data-c="cats" data-en="Cats" data-fr="Chats">Cats</button><button class="chip" data-c="nature" data-en="Nature" data-fr="Nature">Nature</button></div><div class="grid" id="grid"></div>
-<p class="credit" data-en="All photos © Anaïs Pantzer, 2026. Please do not reuse without permission." data-fr="Toutes les photos © Anaïs Pantzer, 2026. Merci de ne pas les réutiliser sans autorisation.">All photos © Anaïs Pantzer, 2026. Please do not reuse without permission.</p></main>
+@property --acc{syntax:'<color>';inherits:true;initial-value:#ff5fa8}
+@property --a2{syntax:'<color>';inherits:true;initial-value:#ffb26b}
+:root{--bg:#0b0910;--surface:#15121e;--surface2:#1e1a2b;--text:#f3effb;--muted:#a8a2b8;--line:rgba(255,255,255,.13);--acc:#ff5fa8;--a2:#ffb26b;--ink:#0b0910;transition:--acc .9s ease,--a2 .9s ease;color-scheme:dark;
+--disp:Anton,Impact,"Arial Narrow",sans-serif;--serif:"Instrument Serif",Georgia,serif;--ease:cubic-bezier(.2,.8,.2,1)}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+html.lock,body.lock{overflow:hidden}
+body{margin:0;background:var(--bg);color:var(--text);font:400 16px/1.6 Inter,system-ui,-apple-system,"Segoe UI",sans-serif;overflow-x:hidden}
+img{max-width:100%}a{color:inherit}button{font:inherit;color:inherit;cursor:pointer}
+::selection{background:var(--acc);color:var(--ink)}
+:focus-visible{outline:2px solid var(--acc);outline-offset:3px;border-radius:4px}
+.glow{position:fixed;inset:0;pointer-events:none;z-index:0;background:radial-gradient(60vmax 50vmax at 85% 6%,color-mix(in srgb,var(--acc) 26%,transparent),transparent 62%),radial-gradient(55vmax 45vmax at 0% 95%,color-mix(in srgb,var(--a2) 14%,transparent),transparent 62%)}
+.grain{position:fixed;inset:-50%;pointer-events:none;z-index:150;opacity:.07;background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");animation:grain 1.2s steps(6) infinite}
+@keyframes grain{0%{transform:translate(0,0)}20%{transform:translate(-4%,3%)}40%{transform:translate(3%,-5%)}60%{transform:translate(-3%,-2%)}80%{transform:translate(5%,4%)}100%{transform:translate(0,0)}}
+.prog{position:fixed;left:0;top:0;height:3px;width:100%;transform-origin:0 50%;transform:scaleX(0);background:linear-gradient(90deg,var(--acc),var(--a2));z-index:120}
+/* cursor */
+.cur,.ring{position:fixed;left:0;top:0;pointer-events:none;z-index:400;opacity:0;transition:opacity .3s}
+.has-cursor .cur,.has-cursor .ring{opacity:1}
+.cur{width:8px;height:8px;margin:-4px 0 0 -4px;border-radius:50%;background:#fff;mix-blend-mode:difference}
+.ring{width:44px;height:44px;margin:-22px 0 0 -22px;border-radius:50%;border:1.5px solid var(--acc);display:grid;place-items:center;transition:width .35s var(--ease),height .35s var(--ease),margin .35s var(--ease),background .3s,opacity .3s}
+.ring span{font:700 10px/1 Inter,sans-serif;letter-spacing:.14em;color:var(--ink);opacity:0;transition:opacity .2s}
+.ring.hov{width:70px;height:70px;margin:-35px 0 0 -35px;background:color-mix(in srgb,var(--acc) 28%,transparent)}
+.ring.lbl{width:92px;height:92px;margin:-46px 0 0 -46px;background:var(--acc)}
+.ring.lbl span{opacity:1}
+@media (hover:hover) and (pointer:fine){.has-cursor,.has-cursor a,.has-cursor button,.has-cursor [role=button]{cursor:none}}
+.spark{position:fixed;z-index:390;pointer-events:none;width:14px;height:14px;margin:-7px 0 0 -7px;background:var(--c,#fff);clip-path:polygon(50% 0,62% 38%,100% 50%,62% 62%,50% 100%,38% 62%,0 50%,38% 38%);animation:spark .8s var(--ease) forwards}
+@keyframes spark{to{transform:translate(var(--x),var(--y)) rotate(180deg) scale(0);opacity:0}}
+/* header */
+.top{position:fixed;left:0;right:0;top:0;z-index:110;display:flex;align-items:center;justify-content:space-between;padding:18px clamp(16px,3vw,36px);mix-blend-mode:difference;color:#fff;pointer-events:none}
+.top>*{pointer-events:auto}
+.logo{font:400 26px/1 var(--disp);text-decoration:none;letter-spacing:.04em}
+.logo i{font-style:normal;display:inline-block;transition:transform .6s var(--ease)}
+.logo:hover i{transform:rotate(180deg)}
+.tools{display:flex;gap:10px;align-items:center}
+.pill{border:1.5px solid #fff;background:transparent;border-radius:99px;padding:9px 16px;font:700 12px/1 Inter,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#fff;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:.25s}
+.pill:hover{background:#fff;color:#000}
+@media (max-width:700px){.top{mix-blend-mode:normal;background:rgba(11,9,16,.78);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);padding:10px 16px}.pill{padding:8px 13px}}
+/* hero */
+main{position:relative;z-index:1;overflow-x:clip}
+.hero{padding:clamp(120px,18vw,210px) clamp(18px,4vw,60px) 0;max-width:1700px;margin:auto}
+.kick{font:600 12px/1 Inter,sans-serif;letter-spacing:.4em;text-transform:uppercase;margin:0 0 18px;display:flex;align-items:center;gap:14px;color:var(--acc)}
+.kick::before{content:"";width:46px;height:1.5px;background:currentColor}
+h1{margin:0;font:400 clamp(40px,11vw,230px)/.9 var(--disp);text-transform:uppercase;background:linear-gradient(95deg,var(--acc),var(--a2));-webkit-background-clip:text;background-clip:text;color:transparent;padding-bottom:.05em}
+.hero-row{display:flex;justify-content:space-between;align-items:flex-end;gap:20px 40px;flex-wrap:wrap;margin-top:18px}
+.sub{margin:0;font:italic 400 clamp(24px,3.2vw,42px)/1.15 var(--serif)}
+.count{display:flex;align-items:baseline;gap:12px;border-left:1.5px solid var(--acc);padding-left:16px}
+.count b{font:400 clamp(44px,6vw,80px)/1 var(--disp);font-variant-numeric:tabular-nums}
+.count span{font:600 11px/1.3 Inter,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+/* chips */
+.bar{position:sticky;top:64px;z-index:50;margin:clamp(30px,5vw,60px) auto 0;max-width:1700px;padding:12px clamp(18px,4vw,60px)}
+.chips{display:flex;gap:10px;flex-wrap:wrap}
+.chip{padding:11px 20px;border-radius:99px;border:1.5px solid var(--line);background:rgba(11,9,16,.55);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);font:700 12px/1 Inter,sans-serif;letter-spacing:.12em;text-transform:uppercase;transition:.3s var(--ease);display:inline-flex;align-items:center;gap:9px}
+.chip i{width:8px;height:8px;border-radius:50%;background:var(--cc);display:block}
+.chip em{font-style:normal;color:var(--muted);font-weight:600;letter-spacing:.05em}
+.chip:hover{border-color:var(--cc);transform:translateY(-2px)}
+.chip.on{background:var(--cc);color:var(--ink);border-color:var(--cc)}
+.chip.on i{background:var(--ink)}.chip.on em{color:color-mix(in srgb,var(--ink) 70%,transparent)}
+@media (max-width:700px){.bar{top:52px;overflow-x:auto;scrollbar-width:none}.bar::-webkit-scrollbar{display:none}.chips{flex-wrap:nowrap;width:max-content}}
+/* marquee */
+.mq{overflow:hidden;white-space:nowrap;margin:clamp(30px,5vw,60px) 0 10px}
+.mq .tr{display:inline-flex;will-change:transform}
+.mq span{font:400 clamp(40px,7vw,100px)/1 var(--disp);text-transform:uppercase;padding:0 .35em;color:transparent;-webkit-text-stroke:1.2px rgba(255,255,255,.5)}
+.mq span:nth-child(4n+3){-webkit-text-stroke-color:var(--acc)}
+/* grid */
+.wrap{max-width:1700px;margin:auto;padding:20px clamp(18px,4vw,60px) 0}
+.grid{display:flex;gap:clamp(10px,1.6vw,22px);align-items:flex-start;transition:opacity .28s,transform .28s var(--ease)}
+.grid.swap{opacity:0;transform:translateY(16px)}
+.col{flex:1;display:flex;flex-direction:column;gap:clamp(10px,1.6vw,22px);min-width:0}
+.it{margin:0;position:relative;border-radius:18px;overflow:hidden;cursor:pointer;background:var(--surface);line-height:0;transition:transform .5s var(--ease),filter .4s,opacity .8s var(--ease),box-shadow .4s}
+.js .it:not(.in){opacity:0;transform:translateY(40px) scale(.97)}
+.it img{width:100%;height:auto;display:block;transition:transform .9s var(--ease)}
+.it figcaption{position:absolute;left:0;right:0;bottom:0;padding:44px 16px 14px;line-height:1.3;background:linear-gradient(0deg,rgba(5,4,9,.88),transparent);transform:translateY(100%);transition:transform .5s var(--ease);font:600 13px/1.3 Inter,sans-serif}
+.it figcaption small{display:block;font:700 10px/1 Inter,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:var(--tc,var(--acc));margin-bottom:6px}
+.it:hover figcaption,.it:focus-visible figcaption{transform:none}
+.it:hover img{transform:scale(1.07)}
+.it:hover{box-shadow:0 26px 60px -22px color-mix(in srgb,var(--tc,var(--acc)) 70%,transparent)}
+@media (hover:hover){.grid:hover .it:not(:hover){filter:brightness(.55) saturate(.7)}}
+@media (hover:none){.it figcaption{display:none}}
+/* footer */
+.credit{max-width:1700px;margin:clamp(50px,8vw,100px) auto 0;padding:0 clamp(18px,4vw,60px);color:var(--muted);font-size:14px}
+.end{max-width:1700px;margin:26px auto 0;padding:0 clamp(18px,4vw,60px) 50px;display:flex;gap:14px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:12px;padding:15px 26px;border-radius:99px;background:var(--acc);color:var(--ink);font:700 14px/1 Inter,sans-serif;letter-spacing:.04em;text-decoration:none;transition:transform .3s var(--ease),box-shadow .3s;border:0}
+.btn:hover{box-shadow:0 14px 40px -12px var(--acc)}
+.btn.alt{background:transparent;color:var(--text);border:1.5px solid var(--line)}
+.btn.alt:hover{border-color:var(--acc);color:var(--acc);box-shadow:none}
+/* lightbox */
+#lb{position:fixed;inset:0;z-index:300;background:rgba(5,4,9,.94);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;padding:70px 76px 20px;opacity:0;visibility:hidden;transition:opacity .35s,visibility .35s}
+#lb.open{opacity:1;visibility:visible}
+#lb img{max-width:100%;max-height:calc(100svh - 190px);width:auto;height:auto;border-radius:14px;box-shadow:0 40px 100px -30px color-mix(in srgb,var(--acc) 55%,transparent);transform:scale(.96);transition:transform .6s var(--ease),opacity .3s;opacity:1}
+#lb.open img{transform:none}
+#lb img.ld{opacity:.2}
+#lb .cap{text-align:center;font:600 15px/1.35 Inter,sans-serif}
+#lb .cap small{display:block;color:var(--muted);font-weight:500;font-size:12px;letter-spacing:.06em;margin-top:6px}
+#lb button{position:absolute;border-radius:50%;border:1.5px solid var(--line);background:rgba(30,26,43,.8);width:52px;height:52px;font-size:20px;display:grid;place-items:center;transition:.3s}
+#lb button:hover{background:var(--acc);color:var(--ink);border-color:var(--acc)}
+#lb .x{top:16px;right:16px}#lb .p{left:16px;top:50%;margin-top:-26px}#lb .n{right:16px;top:50%;margin-top:-26px}
+@media (max-width:700px){#lb{padding:64px 12px 16px}#lb .p,#lb .n{top:auto;bottom:16px;margin:0;width:46px;height:46px}#lb .p{left:calc(50% - 56px)}#lb .n{right:calc(50% - 56px)}#lb img{max-height:calc(100svh - 230px)}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.grain{animation:none}.js .it:not(.in){opacity:1;transform:none}}
+
+</style>
+</head>
+<body>
+<div class="cur" id="cur"></div><div class="ring" id="ring"><span id="ringl"></span></div>
+<div class="prog" id="prog"></div><div class="glow"></div><div class="grain"></div>
+<header class="top"><a class="logo" href="./" aria-label="Home"><i>✦</i> AP</a>
+<div class="tools"><a class="pill" href="./" data-en="← Portfolio" data-fr="← Portfolio">← Portfolio</a><button class="pill" id="langbtn" type="button" aria-label="Switch language">FR</button></div></header>
+<main>
+<section class="hero">
+<p class="kick" data-en="Gallery · 2026" data-fr="Galerie · 2026">Gallery · 2026</p>
+<h1 data-en="Photography" data-fr="Photographie">Photography</h1>
+<div class="hero-row"><p class="sub" data-en="Concerts, travels, landscapes and a few cats." data-fr="Concerts, voyages, paysages et quelques chats.">Concerts, travels, landscapes and a few cats.</p>
+<div class="count"><b id="cnt">49</b><span id="ptxt">photos</span></div></div>
+</section>
+<div class="bar"><div class="chips" id="chips" role="group" aria-label="Filter"></div></div>
+<div class="mq" aria-hidden="true"><div class="tr"><span>Korea</span><span>✦</span><span>China</span><span>✦</span><span>France</span><span>✦</span><span>Concerts</span><span>✦</span><span>Cats</span><span>✦</span></div></div>
+<div class="wrap"><div class="grid" id="grid"></div></div>
+<p class="credit" data-en="All photos © Anaïs Pantzer, 2026. Please do not reuse without permission." data-fr="Toutes les photos © Anaïs Pantzer, 2026. Merci de ne pas les réutiliser sans autorisation.">All photos © Anaïs Pantzer, 2026. Please do not reuse without permission.</p>
+<div class="end"><a class="btn" href="./" data-en="← Back to portfolio" data-fr="← Retour au portfolio">← Back to portfolio</a></div>
+</main>
 <div id="pool" hidden><figure class="it" data-t="france" data-en="Château garden, Vaux-le-Vicomte" data-fr="Château de Vaux-le-Vicomte"><img src="img/01-t.jpg" data-full="img/01.jpg" width="680" height="453" loading="lazy" alt="Château garden, Vaux-le-Vicomte"></figure><figure class="it" data-t="china" data-en="Great Wall of China" data-fr="Grande Muraille de Chine"><img src="img/02-t.jpg" data-full="img/02.jpg" width="453" height="680" loading="lazy" alt="Great Wall of China"></figure><figure class="it" data-t="korea" data-en="N Seoul Tower" data-fr="Tour N Seoul"><img src="img/03-t.jpg" data-full="img/03.jpg" width="453" height="680" loading="lazy" alt="N Seoul Tower"></figure><figure class="it" data-t="concerts" data-en="Bilal Hassani on stage" data-fr="Bilal Hassani sur scène"><img src="img/04-t.jpg" data-full="img/04.jpg" width="680" height="453" loading="lazy" alt="Bilal Hassani on stage"></figure><figure class="it" data-t="china" data-en="Temple of Heaven in the rain, Beijing" data-fr="Temple du Ciel sous la pluie, Pékin"><img src="img/05-t.jpg" data-full="img/05.jpg" width="453" height="680" loading="lazy" alt="Temple of Heaven in the rain, Beijing"></figure><figure class="it" data-t="korea" data-en="Palace ceremony, Seoul" data-fr="Cérémonie au palais, Séoul"><img src="img/06-t.jpg" data-full="img/06.jpg" width="453" height="680" loading="lazy" alt="Palace ceremony, Seoul"></figure><figure class="it" data-t="france" data-en="Strasbourg, Petite France" data-fr="Strasbourg, Petite France"><img src="img/07-t.jpg" data-full="img/07.jpg" width="453" height="680" loading="lazy" alt="Strasbourg, Petite France"></figure><figure class="it" data-t="france" data-en="Eiffel Tower, Paris" data-fr="Tour Eiffel, Paris"><img src="img/08-t.jpg" data-full="img/08.jpg" width="453" height="680" loading="lazy" alt="Eiffel Tower, Paris"></figure><figure class="it" data-t="cats" data-en="Orange cat" data-fr="Chat roux"><img src="img/09-t.jpg" data-full="img/09.jpg" width="680" height="453" loading="lazy" alt="Orange cat"></figure><figure class="it" data-t="china nature" data-en="Summer Palace, Beijing" data-fr="Palais d’Été, Pékin"><img src="img/10-t.jpg" data-full="img/10.jpg" width="453" height="680" loading="lazy" alt="Summer Palace, Beijing"></figure><figure class="it" data-t="china" data-en="Lanterns and wish tags" data-fr="Lanternes et vœux"><img src="img/11-t.jpg" data-full="img/11.jpg" width="453" height="680" loading="lazy" alt="Lanterns and wish tags"></figure><figure class="it" data-t="korea nature" data-en="Sunset on a hillside stairway, Seoul" data-fr="Coucher de soleil sur un escalier, Séoul"><img src="img/12-t.jpg" data-full="img/12.jpg" width="453" height="680" loading="lazy" alt="Sunset on a hillside stairway, Seoul"></figure><figure class="it" data-t="france" data-en="Strasbourg, half-timbered houses" data-fr="Strasbourg, maisons à colombages"><img src="img/13-t.jpg" data-full="img/13.jpg" width="453" height="680" loading="lazy" alt="Strasbourg, half-timbered houses"></figure><figure class="it" data-t="france" data-en="Canal Saint-Martin, Paris" data-fr="Canal Saint-Martin, Paris"><img src="img/14-t.jpg" data-full="img/14.jpg" width="453" height="680" loading="lazy" alt="Canal Saint-Martin, Paris"></figure><figure class="it" data-t="france" data-en="Au Pont Saint-Martin, Strasbourg" data-fr="Au Pont Saint-Martin, Strasbourg"><img src="img/15-t.jpg" data-full="img/15.jpg" width="453" height="680" loading="lazy" alt="Au Pont Saint-Martin, Strasbourg"></figure><figure class="it" data-t="cats" data-en="Black cat" data-fr="Chat noir"><img src="img/16-t.jpg" data-full="img/16.jpg" width="453" height="680" loading="lazy" alt="Black cat"></figure><figure class="it" data-t="korea" data-en="Towers through the trees, Seoul Forest" data-fr="Tours entre les arbres, Seoul Forest"><img src="img/17-t.jpg" data-full="img/17.jpg" width="453" height="680" loading="lazy" alt="Towers through the trees, Seoul Forest"></figure><figure class="it" data-t="concerts" data-en="Bilal Hassani live" data-fr="Bilal Hassani en concert"><img src="img/18-t.jpg" data-full="img/18.jpg" width="680" height="453" loading="lazy" alt="Bilal Hassani live"></figure><figure class="it" data-t="france" data-en="Tuileries and the Louvre, Paris" data-fr="Les Tuileries et le Louvre, Paris"><img src="img/19-t.jpg" data-full="img/19.jpg" width="453" height="680" loading="lazy" alt="Tuileries and the Louvre, Paris"></figure><figure class="it" data-t="korea" data-en="Street in Seoul" data-fr="Rue de Séoul"><img src="img/20-t.jpg" data-full="img/20.jpg" width="453" height="680" loading="lazy" alt="Street in Seoul"></figure><figure class="it" data-t="france" data-en="Performer at Vaux-le-Vicomte" data-fr="Artiste à Vaux-le-Vicomte"><img src="img/21-t.jpg" data-full="img/21.jpg" width="453" height="680" loading="lazy" alt="Performer at Vaux-le-Vicomte"></figure><figure class="it" data-t="china" data-en="Painted gate and red lanterns" data-fr="Portique peint et lanternes rouges"><img src="img/22-t.jpg" data-full="img/22.jpg" width="453" height="680" loading="lazy" alt="Painted gate and red lanterns"></figure><figure class="it" data-t="korea" data-en="N Seoul Tower through the trees" data-fr="La tour N Seoul entre les arbres"><img src="img/23-t.jpg" data-full="img/23.jpg" width="453" height="680" loading="lazy" alt="N Seoul Tower through the trees"></figure><figure class="it" data-t="cats" data-en="Black cat on a chair" data-fr="Chat noir sur une chaise"><img src="img/24-t.jpg" data-full="img/24.jpg" width="453" height="680" loading="lazy" alt="Black cat on a chair"></figure><figure class="it" data-t="china nature" data-en="Lily pond, Summer Palace" data-fr="Bassin de nénuphars, Palais d’Été"><img src="img/25-t.jpg" data-full="img/25.jpg" width="453" height="680" loading="lazy" alt="Lily pond, Summer Palace"></figure><figure class="it" data-t="france nature" data-en="Pavilion on a lake, Fontainebleau" data-fr="Pavillon sur l’étang, Fontainebleau"><img src="img/26-t.jpg" data-full="img/26.jpg" width="453" height="680" loading="lazy" alt="Pavilion on a lake, Fontainebleau"></figure><figure class="it" data-t="korea nature" data-en="Sunlit stairway, Seoul" data-fr="Escalier au soleil, Séoul"><img src="img/27-t.jpg" data-full="img/27.jpg" width="453" height="680" loading="lazy" alt="Sunlit stairway, Seoul"></figure><figure class="it" data-t="china" data-en="Street scene, China" data-fr="Scène de rue, Chine"><img src="img/28-t.jpg" data-full="img/28.jpg" width="453" height="680" loading="lazy" alt="Street scene, China"></figure><figure class="it" data-t="france nature" data-en="Parc Monceau, Paris" data-fr="Parc Monceau, Paris"><img src="img/29-t.jpg" data-full="img/29.jpg" width="453" height="680" loading="lazy" alt="Parc Monceau, Paris"></figure><figure class="it" data-t="korea" data-en="Palace gate, Seoul" data-fr="Porte de palais, Séoul"><img src="img/30-t.jpg" data-full="img/30.jpg" width="453" height="680" loading="lazy" alt="Palace gate, Seoul"></figure><figure class="it" data-t="china" data-en="Summer Palace" data-fr="Palais d’Été"><img src="img/31-t.jpg" data-full="img/31.jpg" width="453" height="680" loading="lazy" alt="Summer Palace"></figure><figure class="it" data-t="korea" data-en="Namsan Tower above the lights" data-fr="La tour Namsan au-dessus des lumières"><img src="img/32-t.jpg" data-full="img/32.jpg" width="453" height="680" loading="lazy" alt="Namsan Tower above the lights"></figure><figure class="it" data-t="france" data-en="Basin at Vaux-le-Vicomte" data-fr="Bassin à Vaux-le-Vicomte"><img src="img/33-t.jpg" data-full="img/33.jpg" width="453" height="680" loading="lazy" alt="Basin at Vaux-le-Vicomte"></figure><figure class="it" data-t="concerts" data-en="Bilal Hassani, stage lights" data-fr="Bilal Hassani, lumières de scène"><img src="img/34-t.jpg" data-full="img/34.jpg" width="453" height="680" loading="lazy" alt="Bilal Hassani, stage lights"></figure><figure class="it" data-t="korea" data-en="Seoul rooftops and mountain at sunset" data-fr="Toits de Séoul et montagne au coucher du soleil"><img src="img/35-t.jpg" data-full="img/35.jpg" width="453" height="680" loading="lazy" alt="Seoul rooftops and mountain at sunset"></figure><figure class="it" data-t="cats" data-en="Black cat in a basket" data-fr="Chat noir dans un panier"><img src="img/36-t.jpg" data-full="img/36.jpg" width="453" height="680" loading="lazy" alt="Black cat in a basket"></figure><figure class="it" data-t="korea" data-en="Café with a view" data-fr="Café avec vue"><img src="img/37-t.jpg" data-full="img/37.jpg" width="453" height="680" loading="lazy" alt="Café with a view"></figure><figure class="it" data-t="china nature" data-en="Summer Palace, Beijing" data-fr="Palais d’Été, Pékin"><img src="img/38-t.jpg" data-full="img/38.jpg" width="453" height="680" loading="lazy" alt="Summer Palace, Beijing"></figure><figure class="it" data-t="france" data-en="Fontainebleau interior" data-fr="Intérieur de Fontainebleau"><img src="img/39-t.jpg" data-full="img/39.jpg" width="453" height="680" loading="lazy" alt="Fontainebleau interior"></figure><figure class="it" data-t="korea" data-en="Gyeonghoeru Pavilion, Gyeongbokgung" data-fr="Pavillon Gyeonghoeru, Gyeongbokgung"><img src="img/40-t.jpg" data-full="img/40.jpg" width="453" height="680" loading="lazy" alt="Gyeonghoeru Pavilion, Gyeongbokgung"></figure><figure class="it" data-t="china nature" data-en="Rooftops and hills, Beijing" data-fr="Toits et collines, Pékin"><img src="img/41-t.jpg" data-full="img/41.jpg" width="453" height="680" loading="lazy" alt="Rooftops and hills, Beijing"></figure><figure class="it" data-t="china" data-en="Water calligraphy" data-fr="Calligraphie à l’eau"><img src="img/42-t.jpg" data-full="img/42.jpg" width="453" height="680" loading="lazy" alt="Water calligraphy"></figure><figure class="it" data-t="korea" data-en="Gyeonghoeru Pavilion and willow" data-fr="Pavillon Gyeonghoeru et saule"><img src="img/43-t.jpg" data-full="img/43.jpg" width="453" height="680" loading="lazy" alt="Gyeonghoeru Pavilion and willow"></figure><figure class="it" data-t="france" data-en="Statue in Parc Monceau" data-fr="Statue du Parc Monceau"><img src="img/44-t.jpg" data-full="img/44.jpg" width="453" height="680" loading="lazy" alt="Statue in Parc Monceau"></figure><figure class="it" data-t="korea" data-en="Palace roof and mountain, Seoul" data-fr="Toit du palais et montagne, Séoul"><img src="img/45-t.jpg" data-full="img/45.jpg" width="453" height="680" loading="lazy" alt="Palace roof and mountain, Seoul"></figure><figure class="it" data-t="korea nature" data-en="Fountain in Seoul Forest, Seoul" data-fr="Fontaine à Seoul Forest, Séoul"><img src="img/46-t.jpg" data-full="img/46.jpg" width="453" height="680" loading="lazy" alt="Fountain in Seoul Forest, Seoul"></figure><figure class="it" data-t="france" data-en="Strasbourg Cathedral" data-fr="Cathédrale de Strasbourg"><img src="img/47-t.jpg" data-full="img/47.jpg" width="453" height="680" loading="lazy" alt="Strasbourg Cathedral"></figure><figure class="it" data-t="korea nature" data-en="Pavilion on a hillside trail" data-fr="Pavillon sur un sentier de colline"><img src="img/48-t.jpg" data-full="img/48.jpg" width="453" height="680" loading="lazy" alt="Pavilion on a hillside trail"></figure><figure class="it" data-t="france nature" data-en="Park in Obernai, Alsace" data-fr="Parc à Obernai, Alsace"><img src="img/49-t.jpg" data-full="img/49.jpg" width="383" height="680" loading="lazy" alt="Park in Obernai, Alsace"></figure></div>
-<div id="lb"><button class="x" aria-label="Close">×</button><button class="p" aria-label="Previous">‹</button><button class="n" aria-label="Next">›</button><img alt=""><div class="cap"></div></div>
+<div id="lb" role="dialog" aria-modal="true" aria-label="Photo"><button class="x" type="button" aria-label="Close">✕</button><button class="p" type="button" aria-label="Previous">←</button><button class="n" type="button" aria-label="Next">→</button><img alt=""><div class="cap"></div></div>
 <script>
 (function(){
-var lang='en';try{lang=localStorage.getItem('lang')||'en'}catch(e){}if(/[?&]lang=fr/.test(location.search))lang='fr';
-var pool=[].slice.call(document.querySelectorAll('#pool .it')),grid=document.getElementById('grid'),cur='all',vis=[],idx=0;
-function ncols(){var w=grid.clientWidth;return w<520?2:w<800?3:4}
-function layout(){vis=pool.filter(function(f){return cur==='all'||f.dataset.t.split(' ').indexOf(cur)>-1});
-grid.innerHTML='';var n=ncols(),cols=[],hs=[];for(var i=0;i<n;i++){var c=document.createElement('div');c.className='col';grid.appendChild(c);cols.push(c);hs.push(0)}
-vis.forEach(function(f){var im=f.firstChild,m=hs.indexOf(Math.min.apply(null,hs));cols[m].appendChild(f);hs[m]+=im.height/im.width})}
-function cap(f){return (lang==='fr'?f.dataset.fr:f.dataset.en)}
-function show(i){idx=(i+vis.length)%vis.length;var f=vis[idx],lb=document.getElementById('lb');lb.querySelector('img').src=f.firstChild.dataset.full;lb.querySelector('img').alt=cap(f);lb.querySelector('.cap').innerHTML=cap(f)+'<small>© Anaïs Pantzer 2026 · '+(idx+1)+' / '+vis.length+'</small>';lb.classList.add('open')}
-function close(){document.getElementById('lb').classList.remove('open')}
-pool.forEach(function(f){f.addEventListener('click',function(){show(vis.indexOf(f))})});
-var lb=document.getElementById('lb');lb.querySelector('.x').onclick=close;lb.querySelector('.p').onclick=function(e){e.stopPropagation();show(idx-1)};lb.querySelector('.n').onclick=function(e){e.stopPropagation();show(idx+1)};
+'use strict';
+var $=function(s,r){return (r||document).querySelector(s)},$$=function(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))};
+var root=document.documentElement,body=document.body;
+var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches,fine=window.matchMedia('(hover:hover) and (pointer:fine)').matches;
+var lang='en';try{lang=localStorage.getItem('lang')==='fr'?'fr':'en'}catch(e){}if(/[?&]lang=fr/.test(location.search))lang='fr';
+var TAGS={
+ all:{c:'#ff5fa8',c2:'#ffb26b',en:'All',fr:'Tout'},
+ korea:{c:'#ff5fa8',c2:'#b9a9e6',en:'Korea',fr:'Corée'},
+ china:{c:'#ff8f3d',c2:'#ff5fa8',en:'China',fr:'Chine'},
+ france:{c:'#46e0ff',c2:'#8f7bff',en:'France',fr:'France'},
+ concerts:{c:'#b9a9e6',c2:'#ff9ad5',en:'Concerts',fr:'Concerts'},
+ cats:{c:'#c9ff4a',c2:'#46e0ff',en:'Cats',fr:'Chats'},
+ nature:{c:'#5dffa6',c2:'#46e0ff',en:'Nature',fr:'Nature'}};
+var pool=$$('#pool .it'),grid=$('#grid'),cur='all',vis=[],idx=0;
+/* captions */
+pool.forEach(function(f){var t=f.dataset.t.split(' ')[0];f.style.setProperty('--tc',TAGS[t].c);f.setAttribute('tabindex','0');f.setAttribute('role','button');f.dataset.cursor='VIEW';var c=document.createElement('figcaption');c.innerHTML='<small></small><span></span>';f.appendChild(c)});
+/* chips */
+var cnt={all:pool.length};pool.forEach(function(f){f.dataset.t.split(' ').forEach(function(t){cnt[t]=(cnt[t]||0)+1})});
+var chips=$('#chips');
+Object.keys(TAGS).forEach(function(k){var b=document.createElement('button');b.className='chip'+(k==='all'?' on':'');b.dataset.c=k;b.style.setProperty('--cc',TAGS[k].c);b.innerHTML='<i></i><span></span><em>'+cnt[k]+'</em>';chips.appendChild(b)});
+/* layout */
+function ncols(){var w=grid.parentNode.clientWidth;return w<560?2:w<900?3:w<1400?4:5}
+var io=('IntersectionObserver' in window)?new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){var t=e.target;t.style.transitionDelay=(Math.min(5,+t.dataset.k||0)*70)+'ms,0s,0s,0s,0s';t.classList.add('in');io.unobserve(t);setTimeout(function(){t.style.transitionDelay=''},1200)}})},{threshold:.05,rootMargin:'0px 0px -4% 0px'}):null;
+function layout(){
+ vis=pool.filter(function(f){return cur==='all'||f.dataset.t.split(' ').indexOf(cur)>-1});
+ pool.forEach(function(f){if(f.parentNode===grid||(f.parentNode&&f.parentNode.classList.contains('col'))){$('#pool').appendChild(f)}});
+ grid.innerHTML='';var n=ncols(),cols=[],hs=[];for(var i=0;i<n;i++){var c=document.createElement('div');c.className='col';grid.appendChild(c);cols.push(c);hs.push(0)}
+ vis.forEach(function(f,i){var im=$('img',f),m=hs.indexOf(Math.min.apply(null,hs));f.classList.remove('in');f.dataset.k=Math.floor(i/n);cols[m].appendChild(f);hs[m]+=im.height/im.width;if(io)io.observe(f);else f.classList.add('in')});
+ $('#cnt').textContent=vis.length;
+}
+function setCap(){pool.forEach(function(f){var t=f.dataset.t.split(' ')[0];$('small',f).textContent=TAGS[t][lang];$('span',f).textContent=lang==='fr'?f.dataset.fr:f.dataset.en;$('img',f).alt=lang==='fr'?f.dataset.fr:f.dataset.en})}
+/* filter */
+chips.addEventListener('click',function(e){var b=e.target.closest('.chip');if(!b||b.dataset.c===cur)return;
+ $$('.chip',chips).forEach(function(x){x.classList.toggle('on',x===b)});cur=b.dataset.c;
+ root.style.setProperty('--acc',TAGS[cur].c);root.style.setProperty('--a2',TAGS[cur].c2);
+ grid.classList.add('swap');setTimeout(function(){layout();grid.classList.remove('swap')},reduce?0:260);
+});
+/* lightbox */
+var lb=$('#lb'),lbi=$('img',lb),lastF=null;
+function show(i){idx=(i+vis.length)%vis.length;var f=vis[idx];lastF=f;lbi.classList.add('ld');
+ var src=$('img',f).dataset.full,im=new Image();im.onload=function(){lbi.src=src;lbi.classList.remove('ld')};im.src=src;lbi.src=$('img',f).src;
+ lbi.alt=lang==='fr'?f.dataset.fr:f.dataset.en;$('.cap',lb).innerHTML=(lang==='fr'?f.dataset.fr:f.dataset.en)+'<small>© Anaïs Pantzer 2026 · '+(idx+1)+' / '+vis.length+'</small>';
+ if(!lb.classList.contains('open')){lb.classList.add('open');root.classList.add('lock');body.classList.add('lock');$('.x',lb).focus({preventScroll:true})}}
+function close(){lb.classList.remove('open');root.classList.remove('lock');body.classList.remove('lock');if(lastF)lastF.focus({preventScroll:true})}
+grid.addEventListener('click',function(e){var f=e.target.closest('.it');if(f)show(vis.indexOf(f))});
+grid.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){var f=e.target.closest('.it');if(f){e.preventDefault();show(vis.indexOf(f))}}});
+$('.x',lb).onclick=close;$('.p',lb).onclick=function(e){e.stopPropagation();show(idx-1)};$('.n',lb).onclick=function(e){e.stopPropagation();show(idx+1)};
 lb.addEventListener('click',function(e){if(e.target===lb)close()});
 document.addEventListener('keydown',function(e){if(!lb.classList.contains('open'))return;if(e.key==='Escape')close();if(e.key==='ArrowLeft')show(idx-1);if(e.key==='ArrowRight')show(idx+1)});
-var sx=0;lb.addEventListener('touchstart',function(e){sx=e.touches[0].clientX});lb.addEventListener('touchend',function(e){var d=e.changedTouches[0].clientX-sx;if(Math.abs(d)>50)show(idx+(d<0?1:-1))});
-document.querySelectorAll('.chip').forEach(function(b){b.onclick=function(){document.querySelectorAll('.chip').forEach(function(x){x.classList.remove('on')});b.classList.add('on');cur=b.dataset.c;layout()}});
-function apply(){document.documentElement.lang=lang;document.querySelectorAll('[data-en]').forEach(function(e){if(e.classList.contains('it'))return;e.textContent=lang==='fr'?e.dataset.fr:e.dataset.en});
-document.getElementById('lang').textContent=lang==='fr'?'EN':'FR';document.title=lang==='fr'?'Photographie — Anaïs Pantzer':'Photography — Anaïs Pantzer';
-var cnt={};pool.forEach(function(f){f.dataset.t.split(' ').forEach(function(t){cnt[t]=(cnt[t]||0)+1})});}
-document.getElementById('lang').onclick=function(){lang=lang==='fr'?'en':'fr';try{localStorage.setItem('lang',lang)}catch(e){}apply()};
-var rt;window.addEventListener('resize',function(){clearTimeout(rt);rt=setTimeout(layout,150)});
+var sx=0;lb.addEventListener('touchstart',function(e){sx=e.touches[0].clientX},{passive:true});lb.addEventListener('touchend',function(e){var d=e.changedTouches[0].clientX-sx;if(Math.abs(d)>50)show(idx+(d<0?1:-1))});
+/* progress + marquee */
+var mq=$('.mq .tr');mq.innerHTML+=mq.innerHTML;mq.innerHTML+=mq.innerHTML;var mw=1,mx=0,lastY=scrollY,vel=0;
+function meas(){mw=mq.scrollWidth/4}meas();window.addEventListener('load',meas);if(document.fonts&&document.fonts.ready)document.fonts.ready.then(meas);
+(function f(){var y=scrollY;vel+=((y-lastY)-vel)*.12;lastY=y;if(!reduce){mx-=1+Math.min(18,Math.abs(vel))*.9;if(mx<=-mw)mx+=mw;mq.style.transform='translate3d('+mx+'px,0,0)'}requestAnimationFrame(f)})();
+var pg=$('#prog');function sc(){var h=document.documentElement.scrollHeight-innerHeight;pg.style.transform='scaleX('+(h>0?scrollY/h:0)+')'}
+window.addEventListener('scroll',sc,{passive:true});sc();
+/* cursor */
+var ring=$('#ring'),dot=$('#cur'),rl=$('#ringl'),LB={VIEW:{en:'VIEW',fr:'VOIR'}};
+if(fine&&!reduce){body.classList.add('has-cursor');var mx2=-100,my=-100,rx=-100,ry=-100;
+ window.addEventListener('mousemove',function(e){mx2=e.clientX;my=e.clientY;dot.style.transform='translate3d('+mx2+'px,'+my+'px,0)';var t=e.target.closest&&e.target.closest('a,button,[role=button]');var c=t&&t.closest('[data-cursor]');ring.classList.toggle('hov',!!t&&!c);if(c){rl.textContent=(LB[c.dataset.cursor]||{en:c.dataset.cursor,fr:c.dataset.cursor})[lang];ring.classList.add('lbl')}else ring.classList.remove('lbl')});
+ (function f(){rx+=(mx2-rx)*.18;ry+=(my-ry)*.18;ring.style.transform='translate3d('+rx+'px,'+ry+'px,0)';requestAnimationFrame(f)})();
+ $$('.pill,.btn,.logo').forEach(function(el){el.addEventListener('mousemove',function(e){var r=el.getBoundingClientRect();el.style.transform='translate('+((e.clientX-r.left-r.width/2)*.25)+'px,'+((e.clientY-r.top-r.height/2)*.35)+'px)'});el.addEventListener('mouseleave',function(){el.style.transform=''})});
+}
+var COL=['#ff5fa8','#b9a9e6','#46e0ff','#c9ff4a','#ff8f3d'];
+window.addEventListener('click',function(e){if(reduce||lb.classList.contains('open'))return;for(var i=0;i<9;i++){var s=document.createElement('i');s.className='spark';var a=Math.PI*2*i/9+Math.random()*.5,d=40+Math.random()*50;s.style.left=e.clientX+'px';s.style.top=e.clientY+'px';s.style.setProperty('--x',Math.cos(a)*d+'px');s.style.setProperty('--y',Math.sin(a)*d+'px');s.style.setProperty('--c',COL[i%5]);body.appendChild(s);setTimeout(function(n){n.remove()},850,s)}});
+/* language */
+function apply(){root.lang=lang;$$('[data-en]').forEach(function(e){if(e.classList.contains('it'))return;e.textContent=lang==='fr'?e.dataset.fr:e.dataset.en});
+ $$('.chip',chips).forEach(function(b){$('span',b).textContent=TAGS[b.dataset.c][lang]});setCap();
+ $('#langbtn').textContent=lang==='fr'?'EN':'FR';$('#langbtn').setAttribute('aria-label',lang==='fr'?'Switch to English':'Passer en français');
+ $('#ptxt').textContent=lang==='fr'?'photos':'photos';
+ document.title=lang==='fr'?'Photographie — Anaïs Pantzer':'Photography — Anaïs Pantzer';
+ $('.x',lb).setAttribute('aria-label',lang==='fr'?'Fermer':'Close');
+ try{localStorage.setItem('lang',lang)}catch(e){}
+ if(lb.classList.contains('open'))show(idx);}
+$('#langbtn').onclick=function(){lang=lang==='fr'?'en':'fr';apply()};
+var rt;window.addEventListener('resize',function(){clearTimeout(rt);rt=setTimeout(function(){meas();layout()},180)});
 apply();layout();
 })();
-</script></body></html>
+
+</script>
+</body>
+</html>
